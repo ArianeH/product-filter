@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Product Filter</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -12,8 +13,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
-    <h1>Product Filter</h1>
+
+    <h1 id="main-heading">Product Filter</h1>
+
+    <script id="product-card-template" type="text/x-handlebars-template">
+    {{#each results}}
+      <a href="#" class="product-card">
+        <div class="product-card-content">
+          <h1 class="product-card-heading">{{name}}</h1>
+          <img src={{fabric_image_url}} alt="Image of fabric" class="product-img">
+          <p>{{short_description}}</p>
+        </div>
+      </a>
+      {{/each}}
+    </script>
+
+    <div class="product-card-placeholder"></div>
 
   </div>
 
