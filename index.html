@@ -18,13 +18,19 @@
 
     <h1 id="main-heading">Product Filter</h1>
 
+    <div class="product-filter">
+      Search by term:<input id="input-field" type="text" name="tag-selector">
+      <input type="submit" value="Submit" onclick="getProductsWithTag()">
+    </div>
+
     <script id="product-card-template" type="text/x-handlebars-template">
     {{#each results}}
       <a href="#" class="product-card">
         <div class="product-card-content">
-          <h1 class="product-card-heading">{{name}}</h1>
           <img src={{fabric_image_url}} alt="Image of fabric" class="product-img">
+          <h1 class="product-card-heading">{{name}}</h1>
           <p>{{short_description}}</p>
+          <!-- <p>{{tags}}</p> -->
         </div>
       </a>
       {{/each}}

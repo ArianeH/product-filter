@@ -12,3 +12,25 @@ $(document).ready(function() {
     $('.product-card-placeholder').html(compiledHtml);
   });
 });
+
+function getProductsWithTag() {
+  var inputTerm = document.getElementById("input-field").value;
+  requestProductsByTag(getProductsWithTerms(inputTerm));
+}
+
+function getProductsWithTerms(term) {
+ return '?q=' + term
+}
+
+function requestProductsByTag(path) {
+  $.ajax({
+    url: root + path,
+    method: 'GET'
+  }).then(function(data) {
+    console.log(data);
+    var productCardTemplateScript = $("#product-card-template").html();
+    var productCardTemplate = Handlebars.compile(productCardTemplateScript);
+    var compiledHtml = productCardTemplate(data);
+    $('.product-card-placeholder').html(compiledHtml);
+  });
+}
