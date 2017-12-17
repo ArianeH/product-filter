@@ -1,16 +1,7 @@
-var root = 'http://search.spoonflower.com/searchv2/designs';
+var root = 'http://search.spoonflower.com/searchv2/';
 
 $(document).ready(function() {
-  $.ajax({
-    url: root,
-    method: 'GET'
-  }).then(function(data) {
-    console.log(data);
-    var productCardTemplateScript = $("#product-card-template").html();
-    var productCardTemplate = Handlebars.compile(productCardTemplateScript);
-    var compiledHtml = productCardTemplate(data);
-    $('.product-card-placeholder').html(compiledHtml);
-  });
+  requestProductsByTag('designs');
 });
 
 function getProductsWithTag() {
@@ -19,7 +10,7 @@ function getProductsWithTag() {
 }
 
 function getProductsWithTerms(term) {
- return '?q=' + term
+ return 'designs?q=' + term
 }
 
 function requestProductsByTag(path) {
