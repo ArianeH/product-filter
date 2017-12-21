@@ -5,14 +5,18 @@ $(document).ready(function() {
 });
 
 function getProductsWithTag() {
-  var inputTerm = document.getElementById("tag-input-field").value;
+  var inputTerm = $("#tag-input-field").val();
   requestProductsByAttribute(getProductsWithTerms(inputTerm));
 }
 
 function getProductsWithSortStyle() {
-  var sortInputTerm = $("#sort-selection option:selected").text().toLowerCase();
-  console.log(sortInputTerm)
+  var sortInputTerm = $("#sort-selection option:selected").val();
   requestProductsByAttribute(getProductsBySort(sortInputTerm));
+}
+
+function getProductsWithSubstrate() {
+  var substrateTerm = $("#substrate-selection option:selected").val();
+  requestProductsByAttribute(getProductsBySubstrate(substrateTerm));
 }
 
 function getProductsWithTerms(term) {
@@ -21,6 +25,10 @@ function getProductsWithTerms(term) {
 
 function getProductsBySort(sortStyle) {
   return 'designs?sort=' + sortStyle;
+}
+
+function getProductsBySubstrate(substrateType) {
+  return 'designs?substrate=' + substrateType;
 }
 
 function requestProductsByAttribute(path) {

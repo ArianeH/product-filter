@@ -23,6 +23,13 @@
         Search by term:<input id="tag-input-field" type="text" name="tag-selector">
         <input type="submit" value="Search" onclick="getProductsWithTag()">
 
+        <select id="substrate-selection" onclick="getProductsWithSubstrate()">
+          <option value="any">All Substrates</option>
+          <option value="fabric">Fabric</option>
+          <option value="wallpaper">Wallpaper</option>
+          <option value="gift_wrap">Gift Wrap</option>
+        </select>
+
         <select id="sort-selection" onclick="getProductsWithSortStyle()">
           <option value="classic">Classic</option>
           <option value="freshtastic">Freshtastic</option>
