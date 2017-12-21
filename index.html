@@ -11,29 +11,29 @@
   <script src="product-filter.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="card.css">
 </head>
 <body>
 
   <div class="container">
-
     <div class="header-section">
       <h1 id="main-heading">Product Filter</h1>
 
       <div class="filter-section">
         <div class="product-filter">
           <input id="tag-input-field" class="input-field" type="text" name="tag-selector" placeholder="Search by Term">
-          <input type="submit" value="Search" onclick="getProductsWithTag()" class="search-btn">
+          <input type="submit" value="Search" onclick="searchByInputs()" class="search-btn">
 
-          <select id="substrate-selection" class="sort-dropdown" onclick="getProductsWithSubstrate()">
-            <option selected disabled class="hide-option">Substrate Options</option>
+          <select id="substrate-selection" class="sort-dropdown" onclick="searchByInputs()">
+            <option selected disabled class="hide-option" value="any">Substrate Options</option>
             <option value="any">All Substrates</option>
             <option value="fabric">Fabric</option>
             <option value="wallpaper">Wallpaper</option>
             <option value="gift_wrap">Gift Wrap</option>
           </select>
 
-          <select id="sort-selection" class="sort-dropdown" onclick="getProductsWithSortStyle()">
-            <option selected disabled class="hide-option">Sort Options</option>
+          <select id="sort-selection" class="sort-dropdown" onclick="searchByInputs()">
+            <option selected disabled class="hide-option" value="classic">Sort Options</option>
             <option value="classic">Classic</option>
             <option value="freshtastic">Freshtastic</option>
             <option value="relevant">Relevant</option>
@@ -66,6 +66,5 @@
     <div class="product-card-placeholder"></div>
 
   </div>
-
 </body>
 </html>

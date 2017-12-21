@@ -4,31 +4,16 @@ $(document).ready(function() {
   requestProductsByAttribute('designs');
 });
 
-function getProductsWithTag() {
-  var inputTerm = $("#tag-input-field").val();
-  requestProductsByAttribute(getProductsWithTerms(inputTerm));
+function searchByInputs() {
+  var substrateInput = $("#substrate-selection option:selected").val();
+  var sortInput = $("#sort-selection option:selected").val();
+  var searchInput = $("#tag-input-field").val();
+
+  requestProductsByAttribute(buildQuery(searchInput, sortInput, substrateInput));
 }
 
-function getProductsWithSortStyle() {
-  var sortInputTerm = $("#sort-selection option:selected").val();
-  requestProductsByAttribute(getProductsBySort(sortInputTerm));
-}
-
-function getProductsWithSubstrate() {
-  var substrateTerm = $("#substrate-selection option:selected").val();
-  requestProductsByAttribute(getProductsBySubstrate(substrateTerm));
-}
-
-function getProductsWithTerms(term) {
- return 'designs?q=' + term
-}
-
-function getProductsBySort(sortStyle) {
-  return 'designs?sort=' + sortStyle;
-}
-
-function getProductsBySubstrate(substrateType) {
-  return 'designs?substrate=' + substrateType;
+function buildQuery(term, sortStyle, substrateType) {
+ return 'designs?q=' + term + '&sort=' + sortStyle + '&substrate=' + substrateType
 }
 
 function requestProductsByAttribute(path) {
