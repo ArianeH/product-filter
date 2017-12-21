@@ -24,13 +24,21 @@
     </div>
 
     <script id="product-card-template" type="text/x-handlebars-template">
-    {{#each results}}
+      {{#each results}}
       <a href="#" class="product-card">
         <div class="product-card-content">
           <img src={{fabric_image_url}} alt="Image of fabric" class="product-img">
-          <h1 class="product-card-heading">{{name}}</h1>
-          <p>{{short_description}}</p>
-          <!-- <p>{{tags}}</p> -->
+          <div class="product-card-overlay"></div>
+          <div id="view-details">Click for more details</div>
+          <div id="add-now-btn">Add to cart</div>
+          <div class="product-details">
+            <div class="product-details-container">
+              <h1 class="product-card-heading">{{name}}</h1>
+              <p>{{user.screen_name}}</p>
+              <p class="short-description">{{short_description}}</p>
+              <!-- <p>{{tags}}</p> -->
+            </div>
+          </div>
         </div>
       </a>
       {{/each}}
