@@ -18,9 +18,18 @@
 
     <h1 id="main-heading">Product Filter</h1>
 
-    <div class="product-filter">
-      Search by term:<input id="input-field" type="text" name="tag-selector">
-      <input type="submit" value="Submit" onclick="getProductsWithTag()">
+    <div class="filter-section">
+      <div class="product-filter">
+        Search by term:<input id="tag-input-field" type="text" name="tag-selector">
+        <input type="submit" value="Search" onclick="getProductsWithTag()">
+
+        <select id="sort-selection" onclick="getProductsWithSortStyle()">
+          <option value="classic">Classic</option>
+          <option value="freshtastic">Freshtastic</option>
+          <option value="relevant">Relevant</option>
+        </select>
+
+      </div>
     </div>
 
     <script id="product-card-template" type="text/x-handlebars-template">
@@ -36,7 +45,6 @@
               <h1 class="product-card-heading">{{name}}</h1>
               <p>{{user.screen_name}}</p>
               <p class="short-description">{{short_description}}</p>
-              <!-- <p>{{tags}}</p> -->
             </div>
           </div>
         </div>
